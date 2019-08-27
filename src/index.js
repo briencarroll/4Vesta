@@ -3,7 +3,15 @@ import './style.css'
 // import bg2 from './assets/2.png'
 // import bg3 from './assets/3.png'
 
-window.addEventListener('DOMContentLoaded', (event) => {
+// const creativeHarmony = [
+//   '#61219b',
+//   '#9226c7',
+//   '#ac92eb',
+//   '#5d9cec',
+//   '#97ead8',
+// ]
+
+window.addEventListener('DOMContentLoaded', () => {
   const nodes = {
     body: document.querySelectorAll('body'),
     bgOne: document.querySelectorAll('.background-one'),
@@ -12,19 +20,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
     links: document.querySelectorAll('.link'),
     spotify: document.querySelectorAll('.spotify'),
     bandcamp: document.querySelectorAll('.bandcamp'),
-    apple: document.querySelectorAll('.apple'),
+    contact: document.querySelectorAll('.contact'),
   }
 
-  nodes.bandcamp[0].addEventListener('mouseenter', (e) => {
+  nodes.title[0].addEventListener('mouseenter', () => {
+    nodes.bgOne[0].style.setProperty('--background-one-blend-mode', 'darken')
+    nodes.bgTwo[0].style.setProperty('--background-two-blend-mode', 'difference')
+  })
+  nodes.bandcamp[0].addEventListener('mouseenter', () => {
     nodes.bgOne[0].style.setProperty('--background-one-blend-mode', 'overlay')
     nodes.bgTwo[0].style.setProperty('--background-two-blend-mode', 'hue')
   })
-  nodes.spotify[0].addEventListener('mouseenter', (e) => {
-    nodes.bgOne[0].style.setProperty('--background-one-blend-mode', 'color-dodge')
+  nodes.spotify[0].addEventListener('mouseenter', () => {
+    nodes.bgOne[0].style.setProperty('--background-one-blend-mode', 'color-burn')
     nodes.bgTwo[0].style.setProperty('--background-two-blend-mode', 'saturation')
   })
-  nodes.apple[0].addEventListener('mouseenter', (e) => {
-    nodes.bgOne[0].style.setProperty('--background-one-blend-mode', 'darken')
-    nodes.bgTwo[0].style.setProperty('--background-two-blend-mode', 'difference')
+  nodes.contact[0].addEventListener('mouseenter', () => {
+    nodes.bgOne[0].style.setProperty('--background-one-blend-mode', 'difference')
+    nodes.bgTwo[0].style.setProperty('--background-two-blend-mode', 'hue')
   })
 })

@@ -6,8 +6,9 @@ html {
 }
 
 body {
-    --background-one-blend-mode: difference;
-    --background-two-blend-mode: hue;
+  background-color: purple;
+    --background-one-blend-mode: darken;
+    --background-two-blend-mode: difference;
     overflow: hidden;
     border: 0;
     margin: 0;
@@ -27,7 +28,7 @@ body {
       url(./assets/3.png);
     background-color: purple;
     background-blend-mode: var(--background-one-blend-mode);
-    animation: infinite-fade 20s infinite alternate-reverse, color-change-1 20s infinite alternate;
+    animation: infinite-fade 20s infinite alternate-reverse, color-change-1 20s infinite alternate, wobbleScale 40s infinite alternate;
   }
 
   .background-two {
@@ -43,7 +44,7 @@ body {
       url(./assets/6.png);
     background-color: red;
     background-blend-mode: var(--background-two-blend-mode);
-    animation: infinite-fade 20s infinite alternate, color-change-1 20s infinite alternate-reverse;
+    animation: infinite-fade 20s infinite alternate, color-change-1 20s infinite alternate-reverse, wobbleScale 30s infinite alternate-reverse;
   }
   
   .container {
@@ -53,8 +54,8 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   
   .title {
@@ -83,35 +84,32 @@ body {
   .title::after {
     text-shadow: -1px 0 red;
     left: -2px;
-      clip-path: inset(24% 0%);
-      animation: noise-anim-2 2s infinite linear alternate-reverse;
+    clip-path: inset(24% 0%);
+    animation: noise-anim-2 2s infinite linear alternate-reverse;
   }
   
   .navigation {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
   }
-  
+
   a {
     text-decoration: none;
-    padding: 20px;
+    position: relative;
+    padding: 10px;
     color: white;
+    transition: color 220ms ease;
+    display: block;
   }
+
   
   a:hover {
-    
+    color: #d9dad9ac;
+    transition: color 200ms ease;
   }
-  
-  .link-container {
-    position: relative;
-  }
-  
-  .underline {
-    position: absolute;
-  }
-  
+
   @keyframes noise-anim {
     0% {
       clip-path: inset(40% 0 61% 0);
@@ -198,5 +196,26 @@ body {
     90% { background-color: #e0598b; }
     100% { background-color: #5698c4; }
   }
+  @keyframes color-change-3 {
+    0% { background-color: #61219b; }
+    10% { background-color: #9226c7; }
+    20% { background-color: #ac92eb; }
+    30% { background-color: #5d9cec; }
+    40% { background-color: #97ead8; }
+    50% { background-color: #dd3497; }
+    60% { background-color: #ae017e; }
+    70% { background-color: #7a0177; }
+    80% { background-color: #49006a; }
+    90% { background-color: #e0598b; }
+    100% { background-color: #5698c4; }
+  }
 
-  
+  @keyframes wobbleScale {
+    from {
+      transform: scale(1.0);
+    }
+    to {
+      transform: scale(1.9);
+    }
+  }
+
