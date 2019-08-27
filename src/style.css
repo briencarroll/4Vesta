@@ -1,0 +1,202 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    --background-one-blend-mode: difference;
+    --background-two-blend-mode: hue;
+    overflow: hidden;
+    border: 0;
+    margin: 0;
+    font-family: 'Gayathri', sans-serif;
+  }
+
+  .background-one {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(./assets/1.png),
+      url(./assets/2.png),
+      url(./assets/3.png);
+    background-color: purple;
+    background-blend-mode: var(--background-one-blend-mode);
+    animation: infinite-fade 20s infinite alternate-reverse, color-change-1 20s infinite alternate;
+  }
+
+  .background-two {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(./assets/4.png),
+      url(./assets/5.png),
+      url(./assets/6.png);
+    background-color: red;
+    background-blend-mode: var(--background-two-blend-mode);
+    animation: infinite-fade 20s infinite alternate, color-change-1 20s infinite alternate-reverse;
+  }
+  
+  .container {
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title {
+    margin: 0;
+    position: relative;
+    font-size: 76px;
+    color: white;
+  }
+  
+  .title::before, .title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .title::before {
+    text-shadow: -1px 0 blue;
+    left: 2px;
+    clip-path: inset(20% 4%);
+    animation: noise-anim 2s infinite linear alternate-reverse;
+  }
+  
+  .title::after {
+    text-shadow: -1px 0 red;
+    left: -2px;
+      clip-path: inset(24% 0%);
+      animation: noise-anim-2 2s infinite linear alternate-reverse;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+  }
+  
+  a {
+    text-decoration: none;
+    padding: 20px;
+    color: white;
+  }
+  
+  a:hover {
+    
+  }
+  
+  .link-container {
+    position: relative;
+  }
+  
+  .underline {
+    position: absolute;
+  }
+  
+  @keyframes noise-anim {
+    0% {
+      clip-path: inset(40% 0 61% 0);
+    }
+    20% {
+      clip-path: inset(92% 0 1% 0);
+    }
+    40% {
+      clip-path: inset(43% 0 1% 0);
+    }
+    60% {
+      clip-path: inset(25% 0 58% 0);
+    }
+    80% {
+      clip-path: inset(54% 0 7% 0);
+    }
+    100% {
+      clip-path: inset(58% 0 43% 0);
+    }
+  }
+  
+  @keyframes noise-anim-2 {
+    0% {
+      clip-path: inset(10% 0 11% 0);
+    }
+    20% {
+      clip-path: inset(12% 0 91% 0);
+    }
+    40% {
+      clip-path: inset(43% 0 1% 0);
+    }
+    60% {
+      clip-path: inset(52% 0 86% 0);
+    }
+    80% {
+      clip-path: inset(7% 0 54% 0);
+    }
+    100% {
+      clip-path: inset(43% 0 4% 0);
+    }
+  }
+
+  @keyframes infinite-spinning {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes infinite-fade {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes color-change-1 {
+    0% { background-color: #000519; }
+    10% { background-color: #000a32; }
+    20% { background-color: #00507d; }
+    30% { background-color: #0096c8; }
+    40% { background-color: #7bccc4; }
+    50% { background-color: #4eb3d3; }
+    60% { background-color: #2b8cbe; }
+    70% { background-color: #0868ac; }
+    80% { background-color: #084081; }
+    90% { background-color: #9163b6; }
+    100% { background-color: #5698c4; }
+  }
+  @keyframes color-change-2 {
+    0% { background-color: #4d004b; }
+    10% { background-color: #810f7c; }
+    20% { background-color: #88419d; }
+    30% { background-color: #fa9fb5; }
+    40% { background-color: #f768a1; }
+    50% { background-color: #dd3497; }
+    60% { background-color: #ae017e; }
+    70% { background-color: #7a0177; }
+    80% { background-color: #49006a; }
+    90% { background-color: #e0598b; }
+    100% { background-color: #5698c4; }
+  }
+
+  
